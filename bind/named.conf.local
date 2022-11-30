@@ -13,7 +13,7 @@ zone "julio.local" {
 
 zone "julio.local" {
 	type slave;
-	file "db.julio.local";
+	file "slaves/db.julio.local";
 	masters {10.9.0.1;};
 	allow-notify {10.9.0.1;};
 };
