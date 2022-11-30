@@ -1,0 +1,29 @@
+# SUBDOMAIN1
+server {
+        listen ip:80;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name nginx1.julio.local;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+
+# SAME SITE BUT HTTPS
+server {
+        listen 443;
+        root /var/www/example.com;
+        index index.html;
+        server_name nginx1.julio.local;
+# Execute sudo mkdir /etc/nginx/certs && sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/certs/snginx.key -out /etc/nginx/certs/snginx.crt
+
+	ssl on;
+	ssl_certificate			/etc/nginx/certs/snginx.crt;
+	ssl_certificate_key		/etc/nginx/certs/snginx.key;
+#	ssl_trusted_certificate		/server_ca.crt;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}

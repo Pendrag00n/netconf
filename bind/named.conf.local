@@ -1,0 +1,19 @@
+//include "/etc/bind/zones.rfc1918";
+
+// MASTER CONF
+
+zone "julio.local" {
+        type master;
+        file "/etc/bind/db.julio.local";
+	allow-transfer {10.9.0.2;};
+	also-notify {10.9.0.2;};
+};
+
+// SLAVE CONF
+
+zone "julio.local" {
+	type slave;
+	file "db.julio.local";
+	masters {10.9.0.1;};
+	allow-notify {10.9.0.1;};
+};
