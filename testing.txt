@@ -6,7 +6,7 @@ $ sudo named-checkzone <file>
 
 
 # TEST APACHE FILES:
-
+$ apachectl configtest
 
 # TEST DHCP FILES:
 
