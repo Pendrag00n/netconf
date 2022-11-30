@@ -1,0 +1,15 @@
+# TEST BIND FILES:
+$ sudo named-checkconf <file>
+$ sudo named-checkzone <file>
+
+# TEST NGINX FILES:
+
+
+# TEST APACHE FILES:
+
+
+# TEST DHCP FILES:
+
+
+# CHECK VSFTP FILES:
+$ sudo vsftpd
