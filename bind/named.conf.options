@@ -3,16 +3,16 @@ acl "trusted" {
 };
 options {
 	directory "/var/cache/bind";
-
+	
+	recursion yes;
+	allow-recursion {trusted;};
 	allow-transfer {none;};
 	allow-query {trusted;};
-	listen-on port 53 {localhost;};
-	recursion no;
-	//========================================================================
-	// If BIND logs error messages about the root key being expired,
-	// you will need to update your keys.  See https://www.isc.org/bind-keys
-	//========================================================================
+	listen-on {localhost;};
 	dnssec-validation auto;
 
-	listen-on-v6 { any; };
+	forwarders {
+		1.1.1.1;
+		8.8.8.8;
+	};
 };
